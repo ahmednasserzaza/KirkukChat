@@ -64,7 +64,6 @@ fun ChatAppBar(
                 tint = Theme.colors.surface
             )
         }
-
     }
 }
 

@@ -5,4 +5,5 @@
     <string name="profile_image">profile image</string>
     <string name="icon_call">" icon call"</string>
     <string name="icon_video_call">icon video call</string>
+    <string name="icon_seen">icon seen</string>
 </resources>
