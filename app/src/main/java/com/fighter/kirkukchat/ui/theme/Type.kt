@@ -1,34 +1,36 @@
 package com.fighter.kirkukchat.ui.theme
 
-import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.fighter.kirkukchat.R
 
-// Set of Material typography styles to start with
-val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
+@Composable
+fun textBody(): TextStyle {
+    return TextStyle(
+        fontSize = 14.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_regular)),
+        fontWeight = FontWeight.W400,
+    )
+}
+
+@Composable
+fun textSubTitle(): TextStyle {
+    return TextStyle(
         fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
+        fontFamily = FontFamily(Font(R.font.poppins_medium)),
+        fontWeight = FontWeight.W500,
     )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+}
+
+@Composable
+fun textTitle(): TextStyle {
+    return TextStyle(
+        fontSize = 20.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_semi_bold)),
+        fontWeight = FontWeight.W600,
     )
-    */
-)
+}
