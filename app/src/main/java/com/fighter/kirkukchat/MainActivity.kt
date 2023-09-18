@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.fighter.kirkukchat.ui.chatScreen.ChatScreen
-import com.fighter.kirkukchat.ui.theme.KirkukChatTheme
+import com.fighter.kirkukchat.presentation.ui.chatScreen.ChatScreen
+import com.fighter.kirkukchat.presentation.ui.theme.KirkukChatTheme
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 
