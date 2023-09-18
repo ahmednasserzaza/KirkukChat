@@ -7,4 +7,7 @@
     <string name="icon_video_call">icon video call</string>
     <string name="icon_seen">icon seen</string>
     <string name="start_typing">start typing...</string>
+    <string name="mice_icon">mice icon</string>
+    <string name="icon_send">icon send</string>
+    <string name="username">Ahmed Nasser</string>
 </resources>
