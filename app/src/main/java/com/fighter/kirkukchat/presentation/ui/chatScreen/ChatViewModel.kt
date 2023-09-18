@@ -1,7 +1,6 @@
 package com.fighter.kirkukchat.presentation.ui.chatScreen
 
 import androidx.lifecycle.ViewModel
-import com.fighter.kirkukchat.data.FakeDataSource
 import com.fighter.kirkukchat.domain.ChatRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,20 +36,20 @@ class ChatViewModel @Inject constructor(private val chatRepository: ChatReposito
         _chatState.update { it.copy(chatHistory = chatHistory) }
     }
 
-    override fun onClickRecord() {
-        TODO("Not yet implemented")
+    override fun onClickRecordAudio() {
+        _chatState.update { it.copy(inRecordMode = true) }
+    }
+
+    override fun onClickCancel() {
+        _chatState.update { it.copy(inRecordMode = false, isRecording = true) }
     }
 
     override fun onClickPause() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onClickStop() {
-        TODO("Not yet implemented")
+        _chatState.update { it.copy(isRecording = !it.isRecording) }
     }
 
     override fun onClickSend() {
-        TODO("Not yet implemented")
+        _chatState.update { it.copy(chatFieldValue = "", inRecordMode = false) }
     }
 
     override fun onTyping(value: String) {

@@ -9,7 +9,9 @@ data class ChatUiState(
     val username: String = "",
     val isOnline: Boolean = false,
     @DrawableRes val imageProfile: Int = R.drawable.profile_image,
-    val chatHistory: List<ChatHistoryUiState> = emptyList()
+    val chatHistory: List<ChatHistoryUiState> = emptyList(),
+    val isRecording: Boolean = true,
+    val inRecordMode: Boolean = false
 )
 
 data class ChatHistoryUiState(

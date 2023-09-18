@@ -1,9 +1,9 @@
 package com.fighter.kirkukchat.presentation.ui.chatScreen
 
 interface ChatInteractionListener {
-    fun onClickRecord()
+    fun onClickRecordAudio()
     fun onClickPause()
-    fun onClickStop()
     fun onClickSend()
+    fun onClickCancel()
     fun onTyping(value: String)
 }
