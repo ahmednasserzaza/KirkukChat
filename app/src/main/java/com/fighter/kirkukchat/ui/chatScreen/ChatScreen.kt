@@ -1,6 +1,5 @@
 package com.fighter.kirkukchat.ui.chatScreen
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,8 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -36,7 +33,6 @@ fun ChatScreen(viewModel: ChatViewModel = hiltViewModel()) {
 
 }
 
-@SuppressLint("ResourceType")
 @Composable
 fun ChatScreenContent(
     state: ChatUiState,
@@ -53,7 +49,6 @@ fun ChatScreenContent(
             name = state.username,
             isOnline = state.isOnline
         )
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -80,7 +75,6 @@ fun ChatScreenContent(
                     value = state.chatFieldValue,
                     onValueChanged = listener::onTyping
                 )
-
                 Icon(
                     painter = painterResource(id = R.drawable.icon_send),
                     contentDescription = stringResource(R.string.icon_send),
@@ -88,8 +82,6 @@ fun ChatScreenContent(
                 )
             }
         }
-
-
     }
 }
 
