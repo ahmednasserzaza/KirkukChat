@@ -1,4 +1,4 @@
-package com.fighter.kirkukchat.ui.theme
+package com.fighter.kirkukchat.presentation.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle

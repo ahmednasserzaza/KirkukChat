@@ -1,4 +1,4 @@
-package com.fighter.kirkukchat.ui.theme
+package com.fighter.kirkukchat.presentation.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -1,7 +1,8 @@
-package com.fighter.kirkukchat.ui.chatScreen
+package com.fighter.kirkukchat.presentation.ui.chatScreen
 
 import androidx.lifecycle.ViewModel
 import com.fighter.kirkukchat.data.FakeDataSource
+import com.fighter.kirkukchat.domain.ChatRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -9,7 +10,7 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
-class ChatViewModel @Inject constructor(private val dataSource: FakeDataSource) : ViewModel(),
+class ChatViewModel @Inject constructor(private val chatRepository: ChatRepository) : ViewModel(),
     ChatInteractionListener {
 
     private val _chatState = MutableStateFlow(ChatUiState())
@@ -17,10 +18,11 @@ class ChatViewModel @Inject constructor(private val dataSource: FakeDataSource) 
 
     init {
         getUserInfo()
+        getChatHistory()
     }
 
     private fun getUserInfo() {
-        val userInfo = dataSource.getUserInfo()
+        val userInfo = chatRepository.getUserInfo()
         _chatState.update {
             it.copy(
                 username = userInfo.username,
@@ -28,6 +30,11 @@ class ChatViewModel @Inject constructor(private val dataSource: FakeDataSource) 
                 isOnline = userInfo.isOnline
             )
         }
+    }
+
+    private fun getChatHistory() {
+        val chatHistory = chatRepository.getChatHistory().toChatHistoryUiState()
+        _chatState.update { it.copy(chatHistory = chatHistory) }
     }
 
     override fun onClickRecord() {
