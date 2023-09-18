@@ -107,7 +107,7 @@ private fun UserInfo(
         Column {
             Text(
                 text = name,
-                style = Theme.typography.title,
+                style = Theme.typography.titleMedium,
                 color = Theme.colors.surface,
             )
             Text(

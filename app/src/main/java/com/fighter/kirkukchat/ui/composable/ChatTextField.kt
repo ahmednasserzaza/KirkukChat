@@ -6,7 +6,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,10 +29,18 @@ fun ChatTextField(
     TextField(
         modifier = modifier,
         value = value,
-        onValueChange = onValueChanged,
-        shape = RoundedCornerShape(16.dp),
+        onValueChange = { onValueChanged(it) },
+        shape = RoundedCornerShape(24.dp),
         placeholder = { Text(text = textPlaceHolder) },
-        colors = TextFieldDefaults.textFieldColors(textColor = Theme.colors.contentBorder),
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = Theme.colors.contentPrimary,
+            disabledTextColor = Color.Transparent,
+            containerColor = Theme.colors.surface,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
+            cursorColor = Theme.colors.contentTertiary
+        ),
         textStyle = Theme.typography.titleMedium,
         singleLine = true,
     )
@@ -36,6 +49,6 @@ fun ChatTextField(
 @Preview
 @Composable
 fun PreviewChatTextField() {
-    var newValue = ""
-    ChatTextField(onValueChanged = { value -> newValue = value }, value = newValue)
+    var textValue by remember { mutableStateOf("") }
+    ChatTextField(onValueChanged = { value -> textValue = value }, value = textValue)
 }
