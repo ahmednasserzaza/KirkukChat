@@ -1,4 +1,4 @@
-package com.fighter.kirkukchat.ui.chatScreen
+package com.fighter.kirkukchat.presentation.ui.chatScreen
 
 interface ChatInteractionListener {
     fun onClickRecord()
