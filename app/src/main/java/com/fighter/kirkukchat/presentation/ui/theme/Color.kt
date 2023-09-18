@@ -23,7 +23,7 @@ val LightColors = Colors(
 )
 
 val DarkColors = Colors(
-    primary = Color(0xFFA01118),
+    primary = Color(0xFFC53D44),
     contentPrimary = Color(0xDEFFFFFF),
     contentTertiary = Color(0x61FFFFFF),
     surface = Color(0xFF1C1C1C),
