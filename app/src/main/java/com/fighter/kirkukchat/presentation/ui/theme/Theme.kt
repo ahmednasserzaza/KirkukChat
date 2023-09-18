@@ -53,5 +53,4 @@ object Theme {
         @Composable
         @ReadOnlyComposable
         get() = localTypography.current
-
 }

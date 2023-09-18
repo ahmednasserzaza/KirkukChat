@@ -26,7 +26,7 @@ fun SenderItem(
     modifier: Modifier = Modifier,
 ) {
     val seenIconColor = animateColorAsState(
-        targetValue = if (isSeen) Theme.colors.primary else Theme.colors.background,
+        targetValue = if (isSeen) Theme.colors.primary else Theme.colors.contentTertiary,
         label = ""
     )
     Column(

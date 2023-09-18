@@ -45,7 +45,7 @@ fun ChatAppBar(
         Icon(
             painter = painterResource(id = R.drawable.icon_back),
             contentDescription = stringResource(R.string.icon_back_description),
-            tint = Theme.colors.surface
+            tint = Theme.colors.onPrimary
         )
         UserInfo(image, name, isOnline)
         Row(
@@ -55,13 +55,13 @@ fun ChatAppBar(
             Icon(
                 painter = painterResource(id = R.drawable.icon_call),
                 contentDescription = stringResource(R.string.icon_call),
-                tint = Theme.colors.surface
+                tint = Theme.colors.onPrimary
 
             )
             Icon(
                 painter = painterResource(id = R.drawable.icon_video_call),
                 contentDescription = stringResource(R.string.icon_video_call),
-                tint = Theme.colors.surface
+                tint = Theme.colors.onPrimary
             )
         }
     }
@@ -108,12 +108,12 @@ private fun UserInfo(
             Text(
                 text = name,
                 style = Theme.typography.titleMedium,
-                color = Theme.colors.surface,
+                color = Theme.colors.onPrimary,
             )
             Text(
                 text = userStatus,
                 style = Theme.typography.body,
-                color = Theme.colors.surface,
+                color = Theme.colors.onPrimary,
             )
         }
     }
