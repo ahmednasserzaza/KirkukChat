@@ -1,7 +1,9 @@
 package com.fighter.kirkukchat.presentation.ui.chatScreen
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -29,6 +32,7 @@ import com.fighter.kirkukchat.R
 import com.fighter.kirkukchat.presentation.ui.composable.ChatAppBar
 import com.fighter.kirkukchat.presentation.ui.composable.ChatTextField
 import com.fighter.kirkukchat.presentation.ui.composable.ReceiverItem
+import com.fighter.kirkukchat.presentation.ui.composable.RecordView
 import com.fighter.kirkukchat.presentation.ui.composable.SenderItem
 import com.fighter.kirkukchat.presentation.ui.theme.Theme
 
@@ -96,31 +100,51 @@ fun ChatScreenContent(
                 }
             }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(
-                    16.dp,
-                    alignment = Alignment.CenterHorizontally
+            AnimatedVisibility(visible = state.inRecordMode) {
+                RecordView(
+                    modifier = Modifier,
+                    isRecording = state.isRecording,
+                    onClickCancel = listener::onClickCancel,
+                    onClickPause = listener::onClickPause,
+                    onClickSend = listener::onClickSend
                 )
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.icon_mic),
-                    contentDescription = stringResource(R.string.mice_icon),
-                    tint = Theme.colors.primary
-                )
-                ChatTextField(
-                    modifier = Modifier.weight(1f),
-                    value = state.chatFieldValue,
-                    onValueChanged = listener::onTyping
-                )
-                Icon(
-                    painter = painterResource(id = R.drawable.icon_send),
-                    contentDescription = stringResource(R.string.icon_send),
-                    tint = Theme.colors.primary
-                )
+            }
+
+            AnimatedVisibility(visible = !state.inRecordMode) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(
+                        16.dp,
+                        alignment = Alignment.CenterHorizontally
+                    )
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .clip(shape = CircleShape)
+                            .clickable { listener.onClickRecordAudio() }
+                            .padding(8.dp),
+                        painter = painterResource(id = R.drawable.icon_mic),
+                        contentDescription = stringResource(R.string.mice_icon),
+                        tint = Theme.colors.primary
+                    )
+                    ChatTextField(
+                        modifier = Modifier.weight(1f),
+                        value = state.chatFieldValue,
+                        onValueChanged = listener::onTyping
+                    )
+                    Icon(
+                        modifier = Modifier
+                            .clip(shape = CircleShape)
+                            .clickable { listener.onClickSend() }
+                            .padding(8.dp),
+                        painter = painterResource(id = R.drawable.icon_send),
+                        contentDescription = stringResource(R.string.icon_send),
+                        tint = Theme.colors.primary
+                    )
+                }
             }
         }
     }
