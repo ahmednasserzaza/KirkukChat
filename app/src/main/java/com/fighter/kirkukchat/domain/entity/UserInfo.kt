@@ -1,4 +1,4 @@
-package com.fighter.kirkukchat.data.model
+package com.fighter.kirkukchat.domain.entity
 
 import androidx.annotation.IntegerRes
 
