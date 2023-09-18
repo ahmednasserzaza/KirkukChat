@@ -76,7 +76,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("androidx.work:work-runtime-ktx:2.8.1")
 
-
     // hilt
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
@@ -87,5 +86,6 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
-
+    //lottie animation
+    implementation("com.airbnb.android:lottie-compose:6.0.1")
 }
