@@ -16,8 +16,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
@@ -55,8 +55,8 @@ fun RecordView(
                 .height(48.dp),
             composition = composition,
             iterations = LottieConstants.IterateForever,
-            contentScale = ContentScale.Inside,
-            isPlaying = isRecording
+            isPlaying = isRecording,
+            speed = 0.8f
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -69,7 +69,7 @@ fun RecordView(
                     .clickable { onClickCancel() }
                     .padding(8.dp),
                 painter = painterResource(R.drawable.icon_cancel),
-                contentDescription = "",
+                contentDescription = stringResource(R.string.icon_cancel_record),
                 tint = Theme.colors.primary
             )
             Icon(
@@ -78,7 +78,7 @@ fun RecordView(
                     .clickable { onClickPause() }
                     .padding(8.dp),
                 painter = painterResource(icon.value),
-                contentDescription = "",
+                contentDescription = stringResource(R.string.icon_record_and_pause),
                 tint = Theme.colors.primary
             )
 
@@ -88,7 +88,7 @@ fun RecordView(
                     .clickable { onClickSend() }
                     .padding(8.dp),
                 painter = painterResource(R.drawable.icon_send),
-                contentDescription = "",
+                contentDescription = stringResource(id = R.string.icon_send),
                 tint = Theme.colors.primary
             )
         }

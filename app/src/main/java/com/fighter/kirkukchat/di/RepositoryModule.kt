@@ -14,5 +14,4 @@ internal abstract class RepositoryModule {
     @Singleton
     @Binds
     abstract fun bindChatRepository( repository: ChatRepositoryImpl): ChatRepository
-
 }

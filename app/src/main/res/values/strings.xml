@@ -10,4 +10,6 @@
     <string name="mice_icon">mice icon</string>
     <string name="icon_send">icon send</string>
     <string name="username">Ahmed Nasser</string>
+    <string name="icon_cancel_record">icon cancel record</string>
+    <string name="icon_record_and_pause">icon record and pause</string>
 </resources>
