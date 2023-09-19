@@ -56,11 +56,10 @@ fun SenderItem(
             tint = seenIconColor.value
         )
     }
-
 }
 
 @Preview
 @Composable
 fun PreviewSenderItem() {
-    SenderItem(text = "I'm a big fan series is fantastaaaaaaaic!", isSeen = false)
+    SenderItem(text = "Hello , nice to meet you !", isSeen = false)
 }

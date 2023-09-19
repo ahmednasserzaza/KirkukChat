@@ -29,17 +29,16 @@ import com.fighter.kirkukchat.presentation.ui.theme.Theme
 
 @Composable
 fun RecordView(
-    modifier: Modifier = Modifier,
     isRecording: Boolean,
     onClickCancel: () -> Unit,
     onClickPause: () -> Unit,
-    onClickSend: () -> Unit
+    onClickSend: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.recording))
-
     val icon =
         animateIntAsState(
-            targetValue = if (isRecording) R.drawable.icon_mic else R.drawable.icon_pause,
+            targetValue = if (isRecording) R.drawable.icon_continue_record else R.drawable.icon_pause,
             label = ""
         )
 
@@ -99,5 +98,5 @@ fun RecordView(
 @Preview
 @Composable
 fun PreviewRecord() {
-    RecordView(modifier = Modifier, isRecording = false, {}, {}, {})
+    RecordView(isRecording = false, {}, {}, {})
 }

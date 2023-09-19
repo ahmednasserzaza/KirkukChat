@@ -42,7 +42,6 @@ fun ReceiverItem(
             color = Theme.colors.contentPrimary,
         )
     }
-
 }
 
 @Preview
